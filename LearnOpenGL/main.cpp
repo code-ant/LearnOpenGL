@@ -1,9 +1,4 @@
-//
-//  main.cpp
-//  LearnOpenGL
-//
-//  Created by 王鹏泰 on 2022/6/16.
-//
+// learn-opengl
 
 #include <iostream>
 
