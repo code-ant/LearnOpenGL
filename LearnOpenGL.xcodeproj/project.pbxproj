@@ -12,7 +12,7 @@
 		9914A40B285AD998003C68B1 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9914A40A285AD998003C68B1 /* OpenGL.framework */; };
 		9914A40D285AD99F003C68B1 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9914A40C285AD99F003C68B1 /* IOKit.framework */; };
 		9914A40F285AD9A9003C68B1 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9914A40E285AD9A9003C68B1 /* CoreVideo.framework */; };
-		99A9B70D285ADDB70091C208 /* glad.c in Sources */ = {isa = PBXBuildFile; fileRef = 99A9B70C285ADDB70091C208 /* glad.c */; };
+		99A9B711285B05860091C208 /* glad.c in Sources */ = {isa = PBXBuildFile; fileRef = 99A9B710285B05860091C208 /* glad.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -34,7 +34,7 @@
 		9914A40A285AD998003C68B1 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		9914A40C285AD99F003C68B1 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
 		9914A40E285AD9A9003C68B1 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
-		99A9B70C285ADDB70091C208 /* glad.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = glad.c; path = ../../../../Downloads/glad/src/glad.c; sourceTree = "<group>"; };
+		99A9B710285B05860091C208 /* glad.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = glad.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,7 +73,7 @@
 			isa = PBXGroup;
 			children = (
 				9914A3FE285AD705003C68B1 /* main.cpp */,
-				99A9B70C285ADDB70091C208 /* glad.c */,
+				99A9B710285B05860091C208 /* glad.c */,
 			);
 			path = LearnOpenGL;
 			sourceTree = "<group>";
@@ -146,7 +146,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9914A3FF285AD705003C68B1 /* main.cpp in Sources */,
-				99A9B70D285ADDB70091C208 /* glad.c in Sources */,
+				99A9B711285B05860091C208 /* glad.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
