@@ -13,6 +13,7 @@
 		9914A40D285AD99F003C68B1 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9914A40C285AD99F003C68B1 /* IOKit.framework */; };
 		9914A40F285AD9A9003C68B1 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9914A40E285AD9A9003C68B1 /* CoreVideo.framework */; };
 		99A9B711285B05860091C208 /* glad.c in Sources */ = {isa = PBXBuildFile; fileRef = 99A9B710285B05860091C208 /* glad.c */; };
+		99A9B714285B18E50091C208 /* temp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 99A9B713285B18E50091C208 /* temp.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -35,6 +36,7 @@
 		9914A40C285AD99F003C68B1 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
 		9914A40E285AD9A9003C68B1 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		99A9B710285B05860091C208 /* glad.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = glad.c; sourceTree = "<group>"; };
+		99A9B713285B18E50091C208 /* temp.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = temp.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				9914A3FE285AD705003C68B1 /* main.cpp */,
+				99A9B713285B18E50091C208 /* temp.cpp */,
 				99A9B710285B05860091C208 /* glad.c */,
 			);
 			path = LearnOpenGL;
@@ -147,6 +150,7 @@
 			files = (
 				9914A3FF285AD705003C68B1 /* main.cpp in Sources */,
 				99A9B711285B05860091C208 /* glad.c in Sources */,
+				99A9B714285B18E50091C208 /* temp.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
