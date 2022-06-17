@@ -128,8 +128,8 @@ int main()
     glBindVertexArray(0);
     
     
-    
-    
+    //只绘制线框
+    glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
     
     // render loop
     // -----------
