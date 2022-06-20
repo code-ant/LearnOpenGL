@@ -99,41 +99,37 @@ int main()
     glDeleteShader(fragmentShader);
     // 顶点数据和属性
     // --
-    float vertices[] = {
-        0.5f,  0.0f,  0.0f,
-        0.0f,  0.5f,  0.0f,
-        0.0f,  0.0f,  0.0f,
-        
-       -0.5f,  0.0f,  0.0f,
-        0.0f, -0.5f,  0.0f,
-        0.0f,  0.0f,  0.0f
+    float firstTriangle[] = {
+        -0.9f, -0.5f, 0.0f,  // left
+        -0.0f, -0.5f, 0.0f,  // right
+        -0.45f, 0.5f, 0.0f,  // top
     };
-
-    
-    
-    unsigned int VBO, VAO;
-    glGenVertexArrays(1, &VAO);
-    glGenBuffers(1, &VBO);
-    // 绑定顶点数组对象，然后绑定顶点缓冲区，设置顶点属性
-    glBindVertexArray(VAO);
-    
-    glBindBuffer(GL_ARRAY_BUFFER, VBO);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
-    
+    float secondTriangle[] = {
+        0.0f, -0.5f, 0.0f,  // left
+        0.9f, -0.5f, 0.0f,  // right
+        0.45f, 0.5f, 0.0f   // top
+    };
+    unsigned int VBOs[2], VAOs[2];
+    glGenVertexArrays(2, VAOs); //可以同时生成多个VAO
+    glGenBuffers(2, VBOs);
+    // 设置第一个三角形
+    // --
+    glBindVertexArray(VAOs[0]);
+    glBindBuffer(GL_ARRAY_BUFFER, VBOs[0]);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(firstTriangle), firstTriangle, GL_STATIC_DRAW);
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
     glEnableVertexAttribArray(0);
-    
-    // 解绑VAO
-    glBindBuffer(GL_ARRAY_BUFFER, 0);
-    
-    // 当 VAO 处于活动状态时，不要解除绑定 EBO，因为绑定元素缓冲区对象存储在 VAO 中;需要保持 EBO 绑定
-    // glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
-    
+    // glBindBuffer(GL_ARRAY_BUFFER, 0);
+    // 设置第二个三角形
+    // --
+    glBindVertexArray(VAOs[1]);
+    glBindBuffer(GL_ARRAY_BUFFER, VBOs[1]);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(secondTriangle), secondTriangle, GL_STATIC_DRAW);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, (void*)0);
+    glEnableVertexAttribArray(0);
     // 解除绑定 VAO，以便其他 VAO调用不会意外修改此VAO，但这种情况很少发生。
     // 无论如何，修改其他VAO都需要调用glBindVertexArray，因此通常不会在没有直接必要时解除绑定VAO
     glBindVertexArray(0);
-    
-    
     // 画线
     glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
     
@@ -150,12 +146,13 @@ int main()
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
         
-        // 第一个三角形
         glUseProgram(shaderProgram);
-        glBindVertexArray(VAO);
-        glDrawArrays(GL_TRIANGLES, 0, 6);
-        // glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
-        glBindVertexArray(0);// 非必须，不需要每次都解绑
+        // 使用VAO[0]画第一个三角形
+        glBindVertexArray(VAOs[0]);
+        glDrawArrays(GL_TRIANGLES, 0, 3);
+        // 使用VAO[1]画第二个
+        glBindVertexArray(VAOs[1]);
+        glDrawArrays(GL_TRIANGLES, 0, 3);
         
         // 交换颜色缓冲区
         glfwSwapBuffers(window);
@@ -165,8 +162,8 @@ int main()
     
     // 释放内存
     // 释放内存属于非必须操作
-    glDeleteVertexArrays(1, &VAO);
-    glDeleteBuffers(1, &VBO);
+    glDeleteVertexArrays(2, VAOs);
+    glDeleteBuffers(2, VBOs);
     glDeleteProgram(shaderProgram);
     
     // 终止运行
